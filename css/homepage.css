@@ -1,0 +1,498 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin: 0px;
+    height: 100%;
+    padding-bottom: 15px;
+}
+.header-container {
+    background:linear-gradient(90deg, #000000, rgb(73, 72, 72));
+    display: flex;
+    flex-direction: row;
+}
+.symbol {
+    height: 105px;
+    width: 180px;
+    object-position: center;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.fire-text {
+    margin-bottom: 0px;
+    padding-bottom: 1.5px;
+    margin-top: 7px;
+    padding-top: 0px;
+    font-size: 24px;
+}
+
+/*THE CODE BELOW IS FOR CREATING A FIREY EFFECT ON THE HEADING TEXT*/
+
+/* Container for Centering and Background */
+.fire-container {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(90deg, #000000, #737373);
+    
+}
+
+/* Fire Text Main Styling */
+.fire-text {
+    color: #fff; /* Base text color */
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+    animation: flickerText 1.5s infinite alternate;
+}
+
+/* Inner Fire Glow */
+.fire-text::before {
+    content: attr(class); /* Mirrors the text */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #ffcc00; /* Bright yellow-orange */
+    z-index: -1;
+    opacity: 0.8;
+    filter: blur(10px);
+    animation: flickerInner 1.5s infinite alternate;
+}
+
+/* Outer Fire Glow */
+.fire-text::after {
+    content: attr(class); /* Mirrors the text */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #ff4500; /* Fiery orange-red */
+    z-index: -2;
+    opacity: 0.7;
+    filter: blur(20px);
+    animation: flickerOuter 2s infinite alternate-reverse;
+}
+
+/* Flickering Animation for Entire Text */
+@keyframes flickerText {
+    0%, 100% {
+        text-shadow:
+            0 0 5px #ffcc00,
+            0 0 10px #ff9933,
+            0 0 20px #ff6600,
+            0 0 30px #ff3300,
+            0 0 40px #cc2200;
+    }
+    50% {
+        text-shadow:
+            0 0 10px #ff9933,
+            0 0 20px #ff6600,
+            0 0 30px #ff3300,
+            0 0 40px #cc2200,
+            0 0 50px #990000;
+    }
+}
+
+/* Flickering Inner Glow */
+@keyframes flickerInner {
+    0%, 100% {
+        opacity: 0.8;
+        text-shadow:
+            0 0 5px #ffcc00,
+            0 0 10px #ff9933;
+    }
+    50% {
+        opacity: 1;
+        text-shadow:
+            0 0 10px #ff9933,
+            0 0 20px #ff6600;
+    }
+}
+
+/* Flickering Outer Glow */
+@keyframes flickerOuter {
+    0%, 100% {
+        opacity: 0.7;
+        text-shadow:
+            0 0 10px #ff9933,
+            0 0 20px #ff6600,
+            0 0 30px #ff3300;
+    }
+    50% {
+        opacity: 0.9;
+        text-shadow:
+            0 0 15px #ff6600,
+            0 0 25px #ff3300,
+            0 0 35px #cc2200;
+    }
+}
+/*THE END OF THE FIREY CODE TEXT*/
+
+.logo {
+    height: 150px;
+    width: 150px;
+}
+.navigation-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(90deg, #000000, #737373);
+}
+/*.home, .about-us, .ministries, .contact-us, .give {
+    
+}*/
+.navigation-bar button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background: linear-gradient(90deg, #000000, #737373); /* Same gradient as the parent */
+    color: #fff; /* Text color */
+    cursor: pointer;
+    color: #d8b706;
+
+}
+.navigation-bar button:hover {
+    transform: scale(1.1); /* Enlarges button by 10% */
+    box-shadow: 0px 0px 10px rgba(216, 183, 6, 0.7); /* Adds glowing effect */
+
+}
+/* Flicker effect on click */
+.navigation-bar button:active {
+    animation: flicker 0.05s linear;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; } /* Normal state */
+    50% { opacity: 0.5; } /* Fades for a flicker effect */
+}
+
+
+main {
+    width: 100%;
+    height: auto;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), /* Darker overlay */
+        url('../assets/praise\ and\ worship\ pic.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff; /* Text color for contrast */
+    margin-left: 7px;
+    margin-right: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-statement {
+    color: purple;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weekly-program {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 28px;
+    row-gap: 28px;
+    
+}
+.weekly-program-heading {
+    font-size: 20px; 
+    text-align: center; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-top: 7px;
+    margin-bottom: 21px;
+    color: #d8b706;
+}
+
+/* Program Container */
+.program-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent; /* Keeps it transparent over the image */
+    border: 2px solid transparent; /* Thin base border */
+    position: relative; /* Important for pseudo-elements */
+    text-align: center;
+    border-radius: 8px; /* Smooth glow */
+    z-index: 2; /* Ensures it’s above the image */
+}
+
+/* Fire Border Glow Effect */
+.program-container::before,
+.program-container::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: 8px;
+    z-index: 3; /* Higher than the container */
+    opacity: 1;
+    pointer-events: none; /* Ensures no interaction issues */
+}
+
+/* Inner Fire Glow (Appears Above) */
+.program-container::before {
+    border: 2px solid #ffcc00; /* Bright yellow-orange */
+    box-shadow: 
+        0 0 3px #ffcc00, 
+        0 0 6px #ff9900;
+    animation: flickerInner 1s infinite alternate;
+    mix-blend-mode: lighten; /* Enhances glow visibility */
+}
+
+/* Outer Fire Glow (More Compact) */
+.program-container::after {
+    border: 2px solid #ff4500; /* Fiery red-orange */
+    box-shadow: 
+        0 0 5px #ff4500, 
+        0 0 10px #ff3300;
+    animation: flickerOuter 1.5s infinite alternate;
+    mix-blend-mode: lighten; /* Helps the glow pop */
+}
+
+/* Flickering Animations */
+@keyframes flickerInner {
+    0%, 100% {
+        border-color: #ffcc00;
+        box-shadow: 
+            0 0 3px #ffcc00, 
+            0 0 6px #ff9900;
+    }
+    50% {
+        border-color: #ff9900;
+        box-shadow: 
+            0 0 4px #ff9900, 
+            0 0 8px #ff6600;
+    }
+}
+
+@keyframes flickerOuter {
+    0%, 100% {
+        border-color: #ff4500;
+        box-shadow: 
+            0 0 5px #ff4500, 
+            0 0 10px #ff3300;
+    }
+    50% {
+        border-color: #ff3300;
+        box-shadow: 
+            0 0 7px #ff3300, 
+            0 0 12px #cc2200;
+    }
+}
+
+
+
+.day-program {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 7px;
+    margin-top: 5px;
+    margin-bottom: 7px;
+}
+.day {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 7px;
+    color: #d8b706;
+    font-size: 18px;
+}
+.day-contents {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+.upcoming-events {
+    width: 100%;
+    height: 500px;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), /* Darker overlay */
+        url('../assets/img\ background\ upcoming\ events.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff; /* Text color for contrast */
+    margin-left: 7px;
+    margin-right: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.upcoming-events-text {
+    font-size: xx-large;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    animation: flickerText 1.5s infinite alternate;
+}
+/* Inner Fire Glow */
+.upcoming-events-text::before {
+    content: attr(class); /* Mirrors the text */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #ffcc00; /* Bright yellow-orange */
+    z-index: -1;
+    opacity: 0.8;
+    filter: blur(10px);
+    animation: flickerInner 1.5s infinite alternate;
+}
+
+/* Outer Fire Glow */
+.upcoming-events-text::after {
+    content: attr(class); /* Mirrors the text */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #ff4500; /* Fiery orange-red */
+    z-index: -2;
+    opacity: 0.7;
+    filter: blur(20px);
+    animation: flickerOuter 2s infinite alternate-reverse;
+}
+
+/* Flickering Animation for Entire Text */
+@keyframes flickerText {
+    0%, 100% {
+        text-shadow:
+            0 0 5px #ffcc00,
+            0 0 10px #ff9933,
+            0 0 20px #ff6600,
+            0 0 30px #ff3300,
+            0 0 40px #cc2200;
+    }
+    50% {
+        text-shadow:
+            0 0 10px #ff9933,
+            0 0 20px #ff6600,
+            0 0 30px #ff3300,
+            0 0 40px #cc2200,
+            0 0 50px #990000;
+    }
+}
+
+/* Flickering Inner Glow */
+@keyframes flickerInner {
+    0%, 100% {
+        opacity: 0.8;
+        text-shadow:
+            0 0 5px #ffcc00,
+            0 0 10px #ff9933;
+    }
+    50% {
+        opacity: 1;
+        text-shadow:
+            0 0 10px #ff9933,
+            0 0 20px #ff6600;
+    }
+}
+
+/* Flickering Outer Glow */
+@keyframes flickerOuter {
+    0%, 100% {
+        opacity: 0.7;
+        text-shadow:
+            0 0 10px #ff9933,
+            0 0 20px #ff6600,
+            0 0 30px #ff3300;
+    }
+    50% {
+        opacity: 0.9;
+        text-shadow:
+            0 0 15px #ff6600,
+            0 0 25px #ff3300,
+            0 0 35px #cc2200;
+    }
+}
+/*THE END OF THE FIREY CODE TEXT*/
+
+footer {
+    width: 100%;
+    height: auto;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.3)), /* Darker overlay */
+        url('../assets/footer\ background.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff; /* Text color for contrast */
+    margin-left: 7px;
+    margin-right: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.subscribe {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+}
+.email-input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+.sign-up {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background: linear-gradient(90deg, #000000, #737373);
+    cursor: pointer;
+    color: #d8b706;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Expand the button slightly when hovered */
+.sign-up:hover {
+    transform: scale(1.1); /* Enlarges button by 10% */
+    box-shadow: 0px 0px 10px rgba(216, 183, 6, 0.7); /* Adds glowing effect */
+}
+
+/* Flicker effect on click */
+.sign-up:active {
+    animation: flicker 0.2s linear;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; } /* Normal state */
+    50% { opacity: 0.5; } /* Fades for a flicker effect */
+}
+
+.socials {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+.instagram, .facebook, .youtube, .tiktok {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}

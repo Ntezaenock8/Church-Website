@@ -1,0 +1,80 @@
+body {
+    background-color: black;
+}
+
+/* Program Container */
+.program-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent; /* Keeps the background transparent */
+    border: 2px solid transparent; /* Thin base border */
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px; /* Slight rounding for smooth glow */
+}
+
+/* Fire Border Glow Effect */
+.program-container::before,
+.program-container::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: 8px;
+    z-index: -1;
+    opacity: 1;
+}
+
+/* Inner Fire Glow (Smaller & Sharper) */
+.program-container::before {
+    border: 2px solid #ffcc00; /* Bright yellow-orange */
+    box-shadow: 
+        0 0 3px #ffcc00, 
+        0 0 6px #ff9900;
+    animation: flickerInner 1s infinite alternate;
+}
+
+/* Outer Fire Glow (More Compact) */
+.program-container::after {
+    border: 2px solid #ff4500; /* Fiery red-orange */
+    box-shadow: 
+        0 0 5px #ff4500, 
+        0 0 10px #ff3300;
+    animation: flickerOuter 1.5s infinite alternate;
+}
+
+/* Flickering Inner Glow */
+@keyframes flickerInner {
+    0%, 100% {
+        border-color: #ffcc00;
+        box-shadow: 
+            0 0 3px #ffcc00, 
+            0 0 6px #ff9900;
+    }
+    50% {
+        border-color: #ff9900;
+        box-shadow: 
+            0 0 4px #ff9900, 
+            0 0 8px #ff6600;
+    }
+}
+
+/* Flickering Outer Glow */
+@keyframes flickerOuter {
+    0%, 100% {
+        border-color: #ff4500;
+        box-shadow: 
+            0 0 5px #ff4500, 
+            0 0 10px #ff3300;
+    }
+    50% {
+        border-color: #ff3300;
+        box-shadow: 
+            0 0 7px #ff3300, 
+            0 0 12px #cc2200;
+    }
+}
